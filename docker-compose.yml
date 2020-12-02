@@ -45,10 +45,10 @@ services:
       - ./worker:/app
     depends_on:
       - redis
-  ngnix:
+  nginx:
     restart: always
     build:
-      context: ./ngnix
+      context: nginx
       dockerfile: Dockerfile.dev
     ports:
       - '3050:80' #<local-host>:<container>
