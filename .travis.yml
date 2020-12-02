@@ -1,0 +1,36 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t lilmakijr/client -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run lilmakijr/client npm run test -- --coverage
+
+after_success:
+  - docker build -t lilmakijr/multi-client ./client
+  - docker build -t lilmakijr/multi-ngnix ./ngnix
+  - docker build -t lilmakijr/multi-server ./server
+  - docker build -t lilmakijr/multi-worker ./worker
+    #Log into docker hub
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    #Push images to docker-hub
+  - docker push limakijr/multi-client
+  - docker push limakijr/multi-ngnix
+  - docker push limakijr/multi-server
+  - docker push limakijr/multi-worker
+
+#deploy:
+#  provider: elasticbeanstalk
+#  region: "us-west-2"
+#  app: "work-flow"
+#  env: "Docker-env"
+#  bucket_name: "elasticbeanstalk-us-west-2-xxxxxxx"
+#  bucket_path: "work-flow" # env
+#  on:
+#    branch: master # Deploy on master branch update
+#  # environment variables on application's travis board settings
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key:
+#    secure: "$AWS_SECRET_KEY"

@@ -14,10 +14,6 @@ services:
     volumes:
       - /app/node_modules
       - ./client:/app
-#    expose:
-#      - 3000
-#    ports:
-#    - '3000:3000'
     command: npm run start
   api:
     build:
@@ -26,11 +22,6 @@ services:
     volumes:
       - /app/node_modules
       - ./server:/app
-#    expose:
-#      - 5000
-#    ports:
-#    - '5000:5000'
-#    command: npm run dev
     environment:
       REDIS_HOST: redis # service name
       REDIS_PORT: 6379
