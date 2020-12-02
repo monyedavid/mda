@@ -16,10 +16,10 @@ after_success:
     #Log into docker hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     #Push images to docker-hub
-  - docker push limakijr/multi-client
-  - docker push limakijr/multi-ngnix
-  - docker push limakijr/multi-server
-  - docker push limakijr/multi-worker
+  - docker push lilmakijr/multi-client
+  - docker push lilmakijr/multi-ngnix
+  - docker push lilmakijr/multi-server
+  - docker push lilmakijr/multi-worker
 
 #deploy:
 #  provider: elasticbeanstalk
