@@ -9,17 +9,17 @@ script:
   - docker run lilmakijr/client npm run test -- --coverage
 
 after_success:
-  - docker build -t lilmakijr/multi-client ./client
-  - docker build -t lilmakijr/multi-nginx ./nginx
-  - docker build -t lilmakijr/multi-server ./server
-  - docker build -t lilmakijr/multi-worker ./worker
+  - docker build -t lilmakijr/multi-client-a ./client
+  - docker build -t lilmakijr/multi-nginx-a ./nginx
+  - docker build -t lilmakijr/multi-server-a ./server
+  - docker build -t lilmakijr/multi-worker-a ./worker
     #Log into docker hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     #Push images to docker-hub
-  - docker push lilmakijr/multi-client
-  - docker push lilmakijr/multi-nginx
-  - docker push lilmakijr/multi-server
-  - docker push lilmakijr/multi-worker
+  - docker push lilmakijr/multi-client-a
+  - docker push lilmakijr/multi-nginx-a
+  - docker push lilmakijr/multi-server-a
+  - docker push lilmakijr/multi-worker-a
 
 #deploy:
 #  provider: elasticbeanstalk
