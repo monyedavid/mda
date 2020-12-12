@@ -21,16 +21,16 @@ after_success:
   - docker push lilmakijr/multi-server-a
   - docker push lilmakijr/multi-worker-a
 
-#deploy:
-#  provider: elasticbeanstalk
-#  region: "us-west-2"
-#  app: "work-flow"
-#  env: "Docker-env"
-#  bucket_name: "elasticbeanstalk-us-west-2-xxxxxxx"
-#  bucket_path: "work-flow" # env
-#  on:
-#    branch: master # Deploy on master branch update
-#  # environment variables on application's travis board settings
-#  access_key_id: $AWS_ACCESS_KEY
-#  secret_access_key:
-#    secure: "$AWS_SECRET_KEY"
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-2-494166958338
+  bucket_path: docker-multi # env
+  on:
+    branch: master
+  # environment variables on application's travis board settings
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY

@@ -3,25 +3,25 @@
   "containerDefinitions": [
     {
       "name": "api",
-      "image": "lilmakijr/multi-api",
+      "image": "lilmakijr/multi-server-a",
       "hostname": "api",
       "essential": false
     },
     {
       "name": "client",
-      "image": "lilmakijr/multi-client",
+      "image": "lilmakijr/multi-client-a",
       "hostname": "client",
       "essential": false
     },
     {
       "name": "worker",
-      "image": "lilmakijr/multi-worker",
+      "image": "lilmakijr/multi-worker-a",
       "hostname": "worker",
       "essential": false
     },
     {
       "name": "nginx",
-      "image": "lilmakijr/multi-nginx",
+      "image": "lilmakijr/multi-nginx-a",
       "hostname": "nginx",
       "essential": true,
       "portMappings": [
