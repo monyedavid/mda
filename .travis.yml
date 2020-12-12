@@ -21,7 +21,7 @@ after_success:
   - docker push lilmakijr/multi-server-a
   - docker push lilmakijr/multi-worker-a
 
-deploy:
+deploy: # nb: invalid character description(commit message) with aws elasticbeanstalk
   provider: elasticbeanstalk
   region: us-east-2
   app: multi-docker
