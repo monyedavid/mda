@@ -2,7 +2,7 @@
   "AWSEBDockerrunVersion": "2",
   "containerDefinitions": [
     {
-      "name": "api",
+      "name": "server",
       "image": "lilmakijr/multi-server-a",
       "hostname": "api",
       "essential": false
